@@ -1,9 +1,12 @@
 package com.demo.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class SenhaUtils {
+public class PasswordUtils {
 
+	private static final Logger log = LoggerFactory.getLogger(PasswordUtils.class);
 	/**
 	 * Gera o hash utilizando o {@link BCryptPasswordEncoder}
 	 * @param senha
@@ -28,7 +31,7 @@ public class SenhaUtils {
 	public static boolean senhaValida(String senha, String senhaEncoded) {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		boolean matches = bCryptPasswordEncoder.matches(senha, senhaEncoded);
-		
+		log.info("Gerando hash com o BCrypt.");
 		return matches;
 	}
 }

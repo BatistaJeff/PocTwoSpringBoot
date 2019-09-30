@@ -14,12 +14,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.demo.entities.Lancamento;
 
 @Transactional(readOnly = true)
-@NamedQueries({ @NamedQuery(
-			name = "LancamentoRepository.findByFuncionarioId", 
-			query = "SELECT lanc FROM Lancamento lanc WHERE lanc.funcionario.id = :funcionarioId") })
-public interface ILancamentoRepository extends JpaRepository<Lancamento, Long> {
+@NamedQueries({
+		@NamedQuery(name = "LancamentoRepository.findByFuncionarioId", 
+					query = "SELECT lanc FROM Lancamento lanc WHERE lanc.funcionario.id = :funcionarioId") })
+public interface LancamentoRepository extends JpaRepository<Lancamento, Long> {
 
-	public List<Lancamento> findByFuncionarioId(@Param("funcionarioId") Long funcionarioId);
+	List<Lancamento> findByFuncionarioId(@Param("funcionarioId") Long funcionarioId);
 
-	public Page<Lancamento> findByFuncionarioId(@Param("funcionarioId") Long funcionarioId, Pageable pageable);
+	Page<Lancamento> findByFuncionarioId(@Param("funcionarioId") Long funcionarioId, Pageable pageable);
+
+	Lancamento findOneById(Long id);
 }

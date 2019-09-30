@@ -127,5 +127,7 @@ public class Lancamento implements Serializable {
 		return id;
 	}
 
-	
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
