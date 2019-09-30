@@ -39,8 +39,8 @@ public class LancamentoServiceTest {
         BDDMockito
                 .given(this.lancamentoRepository.findByFuncionarioId(Mockito.anyLong(), Mockito.any(PageRequest.class)))
                 .willReturn(new PageImpl<Lancamento>(new ArrayList<Lancamento>()));
-        BDDMockito.given(this.lancamentoRepository.findById(Mockito.anyLong())).willReturn(new Lancamento());
-        BDDMockito.given(this.lancamentoRepository.save(Mockito.any(Lancamento.class))).willReturn(new Lancamento());
+        BDDMockito.given(this.lancamentoRepository.findById(Mockito.anyLong()));
+        BDDMockito.given(this.lancamentoRepository.save(Mockito.any(Lancamento.class)));
     }
 
     @SuppressWarnings("deprecation")
